@@ -1,0 +1,56 @@
+{
+  "configurations": [
+    {
+      "type": "engine_cfg",
+      "lang": "java-17",
+      "name": "Generator"
+    },
+    {
+      "type": "tnnt_cfg",
+      "name": "chic_pol_prod"
+    },
+    {
+      "type": "database",
+      "name": "engine_db",
+      "db_name": "db_be_sol",
+      "schema_name": "sch_be_adm",
+      "user": "usr_be_adm",
+      "jdbcDriver": "org.postgresql.Driver",
+      "password": "be@1234",
+      "url": "jdbc:postgresql://localhost:5432/db_be_sol?searchpath=sch_be_app"
+    },
+    {
+      "type": "database",
+      "name": "app_db",
+      "db_name": "db_be_sol",
+      "schema_name": "sch_be_app",
+      "user": "usr_be_app",
+      "password": "be@1234",
+      "jdbcDriver": "org.postgresql.Driver",
+      "url": "jdbc:postgresql://localhost:5432/db_be_sol?searchpath=sch_be_app"
+    },
+    {
+      "type": "jpa_cfg",
+      "name": "engine_jpa_cfg",
+      "pu_name": "cdui_engine",
+      "provider": "org.eclipse.persistence.jpa.PersistenceProvider",
+      "db_cfg_name": "engine_db",
+      "ddl_gen_actions": "none",
+      "ddl_gen_mode": "none",
+      "create_ddl_filename": "create-nsl-tables.sql",
+      "drop_ddl_filename": "drop-nsl-tables.sql",
+      "log_level": "INFO",
+      "log_params": "true",
+      "log_timestamp": "true",
+      "log_exceptions": "true",
+      "ssn_customizer": "com.braneenterprises.cdui.generator.db.eclipselink.SessionCustomizer",
+      "ssn_evt_listener": "com.braneenterprises.cdui.generator.db.eclipselink.BraneSessionEventAdapter",
+      "add_props": {
+        "eclipselink.logging.level.sql": "false",
+        "eclipselink.logging.session": "false",
+        "eclipselink.logging.thread": "true",
+        "eclipselink.logging.file": "jpa.log"
+      }
+    }
+  ]
+}
